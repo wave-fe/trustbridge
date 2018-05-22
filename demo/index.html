@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <script>
+            var tb = new TrustBridge();
+            tb.init({
+                url: 'http://127.0.0.1:7000/sandbox.html'
+            }, function () {
+                tb.invork('getPhoneNumber', {name: 'lyn'}, function (data) {
+                    console.log(data);
+                });
+                // console.log('ready');
+            });
+        </script>
+    </body>
+</html>

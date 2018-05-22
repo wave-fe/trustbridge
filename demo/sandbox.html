@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <script>
+            // rendered by a server side template
+            var pageData = {
+                allow: {
+                    getPhoneNumber: false
+                },
+                phone: {
+                    lyn: '18812345678'
+                }
+            };
+        </script>
+        <script>
+            var sandBox = new SandBox();
+            sandBox.init({
+                handlers: {
+                    getPhoneNumber: function (data, callback) {
+                        if (pageData.allow.getPhoneNumber) {
+                            callback({
+                                status: 0,
+                                data: {
+                                    phoneNumber: pageData.phone[data.name]
+                                }
+                            });
+                        }
+                        else {
+                            callback({
+                                status: 1,
+                                data: {},
+                                statusInfo: 'get phone number is not allowed'
+                            });
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
