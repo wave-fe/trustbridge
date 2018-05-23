@@ -53,6 +53,8 @@ module.exports = {
 	output: {
         // filename: '[name].[chunkhash:8].js',
         filename: '[name].js',
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
 		path: path.resolve(__dirname, 'lib')
 	},
 
